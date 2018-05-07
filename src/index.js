@@ -2,6 +2,8 @@ import {getScript} from './getScript'
 import {createEditorComponent} from './createEditorComponent'
 import CMS from 'netlify-cms'
 
+import './File'
+
 export default function() {
   const widgetSrc = 'https://ucarecdn.com/libs/widget/3.x/uploadcare.full.js'
 

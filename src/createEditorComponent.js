@@ -1,5 +1,3 @@
-import React from 'react'
-
 export function createEditorComponent() {
   return {
     id: 'uploadcare',
@@ -8,7 +6,7 @@ export function createEditorComponent() {
       {
         label: 'Image',
         name: 'image',
-        widget: 'image',
+        widget: 'uploadcare_file',
       },
       {
         label: 'Alt Text',
