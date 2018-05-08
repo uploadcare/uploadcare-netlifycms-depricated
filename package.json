@@ -12,8 +12,7 @@
     "start": "browser-sync start -s ./ -f ./ --port 3000",
     "build": "npm run clean && webpack --config webpack.config.js",
     "dev": "webpack --config webpack.config.js --watch",
-    "release": "release-it",
-    "postinstall": "npm run build"
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
