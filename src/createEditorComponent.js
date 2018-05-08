@@ -1,5 +1,23 @@
 import React from 'react'
-import * as File from './File'
+import * as Image from './Image'
+
+export function createEditorComponent() {
+  return {
+    id: 'uploadcare',
+    label: 'Uploadcare',
+    fields: [
+      {
+        label: 'Uploadcare file',
+        name: 'cdnUrl',
+        widget: 'uploadcare_file',
+      },
+    ],
+    pattern: /^!\[(.*)\]\((.*)\)$/,
+    fromBlock,
+    toBlock,
+    toPreview,
+  }
+}
 
 function fromBlock(match) {
   const alt = match[1]
@@ -20,23 +38,5 @@ function toBlock({cdnUrl, alt}) {
 }
 
 function toPreview(data) {
-  return <File.Preview {...data} />
-}
-
-export function createEditorComponent() {
-  return {
-    id: 'uploadcare',
-    label: 'Uploadcare',
-    fields: [
-      {
-        label: 'Uploadcare file',
-        name: 'cdnUrl',
-        widget: 'uploadcare_file',
-      },
-    ],
-    pattern: /^!\[(.*)\]\((.*)\)$/,
-    fromBlock,
-    toBlock,
-    toPreview,
-  }
+  return <Image.Preview {...data} />
 }

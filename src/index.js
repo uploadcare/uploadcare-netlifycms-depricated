@@ -1,7 +1,7 @@
 import {createEditorComponent} from './createEditorComponent'
 import CMS from 'netlify-cms'
 import {getScript} from './getScript'
-import * as File from './File'
+import * as Image from './Image'
 
 function loadWidget() {
   const widgetSrc = 'https://ucarecdn.com/libs/widget/3.x/uploadcare.full.js'
@@ -10,7 +10,7 @@ function loadWidget() {
 }
 
 function registerPlugin() {
-  File.register()
+  Image.register()
 
   const comps = CMS.getEditorComponents()
 
