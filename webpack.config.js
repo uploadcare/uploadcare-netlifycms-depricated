@@ -12,6 +12,7 @@ module.exports = {
   resolve: {extensions: ['*', '.js']},
   externals: {
     'react': 'react',
+    'lodash': 'lodash',
     'netlify-cms': 'netlify-cms',
   },
   devtool: false,

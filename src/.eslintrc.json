@@ -3,6 +3,9 @@
   "rules": {
     "no-console": "off",
     "react/display-name": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "new-cap": "off",
+    "react/prop-types": "off",
+    "id-length": "off"
   }
 }

@@ -11,6 +11,7 @@
     "serve": "serve",
     "start": "browser-sync start -s ./ -f ./ --port 3000",
     "build": "npm run clean && webpack --config webpack.config.js",
+    "dev": "webpack --config webpack.config.js --watch",
     "release": "release-it",
     "postinstall": "npm run build"
   },
@@ -42,9 +43,11 @@
   },
   "peerDependencies": {
     "react": "^15.0.0||^16.0.0",
-    "netlify-cms": "^1.0.0"
+    "netlify-cms": "^1.0.0",
+    "lodash": "^4.17.10"
   },
   "dependencies": {
+    "lodash": "^4.17.10",
     "netlify-cms": "^1.7.0",
     "react": "^16.3.2"
   }

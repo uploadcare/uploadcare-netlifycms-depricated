@@ -1,25 +1,42 @@
+import React from 'react'
+import * as File from './File'
+
+function fromBlock(match) {
+  const alt = match[1]
+  const cdnUrl = match[2]
+
+  return {
+    cdnUrl,
+    alt,
+  }
+}
+
+function toBlock({cdnUrl, alt}) {
+  if (!cdnUrl) {
+    return
+  }
+
+  return `![${alt || ''}](${cdnUrl})`
+}
+
+function toPreview(data) {
+  return <File.Preview {...data} />
+}
+
 export function createEditorComponent() {
   return {
     id: 'uploadcare',
     label: 'Uploadcare',
     fields: [
       {
-        label: 'Image',
-        name: 'image',
+        label: 'Uploadcare file',
+        name: 'cdnUrl',
         widget: 'uploadcare_file',
       },
-      {
-        label: 'Alt Text',
-        name: 'alt',
-      },
     ],
-    pattern: /ucarecdn\.com/,
-    fromBlock: match =>
-      match && {
-        image: match[2],
-        alt: match[1],
-      },
-    toBlock: data => `![${data.alt || ''}](${data.image || ''})`,
-    toPreview: (data, getAsset) => <img src={getAsset(data.image) || ''} alt={data.alt || ''} />,
+    pattern: /^!\[(.*)\]\((.*)\)$/,
+    fromBlock,
+    toBlock,
+    toPreview,
   }
 }
