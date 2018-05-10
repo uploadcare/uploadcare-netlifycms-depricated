@@ -695,9 +695,9 @@ exports.Control = void 0;
 
 var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
 
-var _Uploader = _interopRequireDefault(__webpack_require__(/*! ./Uploader */ "./src/Widget/Uploader.js"));
-
 __webpack_require__(/*! ./Control.pcss */ "./src/Widget/Control.pcss");
+
+var _Uploader = _interopRequireDefault(__webpack_require__(/*! ./Uploader */ "./src/Widget/Uploader.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -869,13 +869,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "react"));
-
 var _lodash = _interopRequireDefault(__webpack_require__(/*! lodash */ "lodash"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "react"));
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -1123,29 +1123,29 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = _default;
 
-var _createEditorComponent = __webpack_require__(/*! ./createEditorComponent */ "./src/createEditorComponent.js");
+var _lodash = _interopRequireDefault(__webpack_require__(/*! lodash */ "lodash"));
 
 var _netlifyCms = _interopRequireDefault(__webpack_require__(/*! netlify-cms */ "netlify-cms"));
 
-var _getScript = __webpack_require__(/*! ./getScript */ "./src/getScript.js");
-
 var Widget = _interopRequireWildcard(__webpack_require__(/*! ./Widget */ "./src/Widget/index.js"));
 
-var _lodash = _interopRequireDefault(__webpack_require__(/*! lodash */ "lodash"));
+var _createEditorComponent = __webpack_require__(/*! ./createEditorComponent */ "./src/createEditorComponent.js");
+
+var _getScript = __webpack_require__(/*! ./getScript */ "./src/getScript.js");
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function loadWidget(options) {
-  var widgetSrc = 'https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js';
+  var widgetSrc = "https://ucarecdn.com/libs/widget/".concat("3.x", "/uploadcare.full.min.js");
   return (0, _getScript.getScript)(widgetSrc).then(function () {
     window.UPLOADCARE_PUBLIC_KEY = options.widgetOptions.publicKey;
   });
 }
 
 function loadEffectsTab() {
-  var effectsTabSrc = 'https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.min.js';
+  var effectsTabSrc = "https://ucarecdn.com/libs/widget-tab-effects/".concat("1.x", "/uploadcare.tab-effects.min.js");
   return (0, _getScript.getScript)(effectsTabSrc).then(function () {
     uploadcare.registerTab('preview', uploadcareTabEffects);
   });
@@ -1153,9 +1153,8 @@ function loadEffectsTab() {
 
 function registerPlugin(options) {
   Widget.register();
-  /* Dirty hack to remove default image widget */
-
   /* eslint-disable*/
+  // Dirty hack to remove default image widget
 
   var comps = _netlifyCms.default.getEditorComponents();
 
@@ -1166,10 +1165,24 @@ function registerPlugin(options) {
   _netlifyCms.default.registerEditorComponent((0, _createEditorComponent.createEditorComponent)(options));
 }
 
+function detectCMSVersion() {
+  // hack to detect NetlifyCMS version from it's source code
+  var regex = /\"Netlify CMS version ([\d\.]*)\"/m;
+  var match = window.initCMS.toString().match(regex);
+  return match ? match[1] : 'unknown';
+}
+
+function getIntegrationOption() {
+  var cmsVersion = detectCMSVersion();
+  var pluginVerion = "1.0.0";
+  return "NetlifyCMS/".concat(cmsVersion, "; Uploadcare-NetlifyCMS/").concat(pluginVerion);
+}
+
 var defaultOpts = {
   effectsTab: true,
   widgetOptions: {
     publicKey: 'demopublickey',
+    integration: getIntegrationOption(),
     imagesOnly: true,
     multiple: false
   }

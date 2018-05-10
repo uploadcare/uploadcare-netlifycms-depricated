@@ -1,30 +1,14 @@
-import {createEditorComponent} from './createEditorComponent'
-import CMS from 'netlify-cms'
-import {getScript} from './getScript'
-import * as Widget from './Widget'
 import _ from 'lodash'
-
-function loadWidget(options) {
-  const widgetSrc = 'https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js'
-
-  return getScript(widgetSrc).then(() => {
-    window.UPLOADCARE_PUBLIC_KEY = options.widgetOptions.publicKey
-  })
-}
-
-function loadEffectsTab() {
-  const effectsTabSrc = 'https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.min.js'
-
-  return getScript(effectsTabSrc).then(() => {
-    uploadcare.registerTab('preview', uploadcareTabEffects)
-  })
-}
+import CMS from 'netlify-cms'
+import * as Widget from './Widget'
+import {createEditorComponent} from './createEditorComponent'
+import {initializeUploadcare} from './initializeUploadcare'
 
 function registerPlugin(options) {
   Widget.register()
 
-  /* Dirty hack to remove default image widget */
   /* eslint-disable*/
+  // hack to remove default image widget
   const comps = CMS.getEditorComponents()
   comps._root.entries = []
   comps.size = 0
@@ -33,10 +17,33 @@ function registerPlugin(options) {
   CMS.registerEditorComponent(createEditorComponent(options))
 }
 
+function detectCMSVersion() {
+  // hack to detect NetlifyCMS version from it's source code
+  const unknown = 'unknown'
+
+  try {
+    const regex = /\"Netlify CMS version ([\d\.]*)\"/m
+    const match = window.initCMS.toString().match(regex)
+
+    return match ? match[1] : unknown
+  }
+  catch (e) {
+    return unknown
+  }
+}
+
+function getIntegrationOption() {
+  var cmsVersion = detectCMSVersion()
+  var pluginVerion = PLUGIN_VERSION
+
+  return `NetlifyCMS/${cmsVersion}; Uploadcare-NetlifyCMS/${pluginVerion}`
+}
+
 const defaultOpts = {
   effectsTab: true,
   widgetOptions: {
     publicKey: 'demopublickey',
+    integration: getIntegrationOption(),
     imagesOnly: true,
     multiple: false,
   },
@@ -45,7 +52,5 @@ const defaultOpts = {
 export default function(userOptions) {
   const options = _.merge(defaultOpts, userOptions)
 
-  loadWidget(options)
-    .then(() => options.effectsTab && loadEffectsTab())
-    .then(() => registerPlugin(options))
+  initializeUploadcare(options).then(() => registerPlugin(options))
 }

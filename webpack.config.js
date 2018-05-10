@@ -1,9 +1,18 @@
 const path = require('path')
+const pkg = require('./package.json')
+const webpack = require('webpack')
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
+  devtool: false,
   entry: './src/index.js',
-  plugins: [],
+  plugins: [
+    new webpack.DefinePlugin({
+      WIDGET_VERSION: JSON.stringify(pkg.widgetVersion),
+      EFFECTS_TAB_VERSION: JSON.stringify(pkg.effectsTabVersion),
+      PLUGIN_VERSION: JSON.stringify(pkg.version),
+    }),
+  ],
   output: {
     filename: 'uploadcare-netlifycms.js',
     libraryTarget: 'umd',
@@ -15,7 +24,6 @@ module.exports = {
     'lodash': 'lodash',
     'netlify-cms': 'netlify-cms',
   },
-  devtool: false,
   module: {
     rules: [
       {
@@ -28,10 +36,14 @@ module.exports = {
       },
       {
         test: /\.pcss$/,
-        use: ['style-loader', {
-          loader: 'css-loader',
-          options: {importLoaders: 1},
-        }, 'postcss-loader'],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {importLoaders: 1},
+          },
+          'postcss-loader',
+        ],
       },
     ],
   },

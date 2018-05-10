@@ -2,6 +2,7 @@
   "name": "uploadcare-netlifycms",
   "version": "1.0.0",
   "widgetVersion": "3.x",
+  "effectsTabVersion": "1.x",
   "main": "dist/uploadcare-netlifycms.js",
   "description": "",
   "scripts": {
