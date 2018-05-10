@@ -1,12 +1,14 @@
 import React from 'react'
 import * as Widget from './Widget'
 
-export function createEditorComponent() {
+export function createEditorComponent(options) {
   return {
     id: 'uploadcare',
     label: 'Uploadcare Image',
     fields: [
       {
+        // the only way to pass some options to the control
+        options: options.widgetOptions,
         label: 'Uploadcare Image',
         name: 'cdnUrl',
         widget: 'uploadcare_widget',

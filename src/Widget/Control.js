@@ -8,10 +8,7 @@ export class Control extends React.Component {
   }
 
   render() {
-    const widgetOptions = {
-      imagesOnly: true,
-      multiple: false,
-    }
+    const widgetOptions = this.props.field.get('options').toJS()
 
     return (
       <div className='nc-controlPane-widget nc-imageControl-imageUpload'>
