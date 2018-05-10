@@ -3,7 +3,6 @@ const pkg = require('./package.json')
 const webpack = require('webpack')
 
 module.exports = {
-  mode: process.env.NODE_ENV || 'development',
   devtool: false,
   entry: './src/index.js',
   plugins: [
