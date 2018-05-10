@@ -1,14 +1,17 @@
 import React from 'react'
 import * as Widget from '../Widget'
+import _ from 'lodash'
 
-export function createToolbarButton(options) {
+export function createSingle(options) {
+  const widgetOptions = _.merge(options.widgetOptions, {multiple: false})
+
   return {
-    id: 'uploadcare',
-    label: 'Uploadcare',
+    id: 'Uploadcare Single',
+    label: 'Uploadcare Single',
     fields: [
       {
         name: 'fileInfo',
-        options: options.widgetOptions,
+        options: widgetOptions,
         label: 'Uploadcare',
         widget: 'uploadcare_widget',
       },

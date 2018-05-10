@@ -678,10 +678,10 @@ module.exports = function (css) {
 
 /***/ }),
 
-/***/ "./src/Toolbar/createToolbarButton.jsx":
-/*!*********************************************!*\
-  !*** ./src/Toolbar/createToolbarButton.jsx ***!
-  \*********************************************/
+/***/ "./src/Toolbar/createMultiple.jsx":
+/*!****************************************!*\
+  !*** ./src/Toolbar/createMultiple.jsx ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -691,23 +691,78 @@ module.exports = function (css) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.createToolbarButton = createToolbarButton;
+exports.createMultiple = createMultiple;
+
+var _lodash = _interopRequireDefault(__webpack_require__(/*! lodash */ "lodash"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function createMultiple(options) {
+  var widgetOptions = _lodash.default.merge(options.widgetOptions, {
+    multiple: true
+  });
+
+  return {
+    id: 'Uploadcare Group',
+    label: 'Uploadcare Group',
+    fields: [{
+      name: 'fileInfo',
+      options: widgetOptions,
+      label: 'Uploadcare',
+      widget: 'uploadcare_widget'
+    }],
+    toBlock: toBlock
+  };
+}
+
+function toBlock(_ref) {
+  var fileInfo = _ref.fileInfo;
+
+  if (!fileInfo) {
+    return;
+  }
+
+  return "[".concat(fileInfo.name || '', "](").concat(fileInfo.cdnUrl, ")");
+}
+
+/***/ }),
+
+/***/ "./src/Toolbar/createSingle.jsx":
+/*!**************************************!*\
+  !*** ./src/Toolbar/createSingle.jsx ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createSingle = createSingle;
 
 var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
 
 var Widget = _interopRequireWildcard(__webpack_require__(/*! ../Widget */ "./src/Widget/index.js"));
 
+var _lodash = _interopRequireDefault(__webpack_require__(/*! lodash */ "lodash"));
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function createToolbarButton(options) {
+function createSingle(options) {
+  var widgetOptions = _lodash.default.merge(options.widgetOptions, {
+    multiple: false
+  });
+
   return {
-    id: 'uploadcare',
-    label: 'Uploadcare',
+    id: 'Uploadcare Single',
+    label: 'Uploadcare Single',
     fields: [{
       name: 'fileInfo',
-      options: options.widgetOptions,
+      options: widgetOptions,
       label: 'Uploadcare',
       widget: 'uploadcare_widget'
     }, {
@@ -1135,7 +1190,9 @@ var _netlifyCms = _interopRequireDefault(__webpack_require__(/*! netlify-cms */ 
 
 var Widget = _interopRequireWildcard(__webpack_require__(/*! ./Widget */ "./src/Widget/index.js"));
 
-var _createToolbarButton = __webpack_require__(/*! ./Toolbar/createToolbarButton */ "./src/Toolbar/createToolbarButton.jsx");
+var _createSingle = __webpack_require__(/*! ./Toolbar/createSingle */ "./src/Toolbar/createSingle.jsx");
+
+var _createMultiple = __webpack_require__(/*! ./Toolbar/createMultiple */ "./src/Toolbar/createMultiple.jsx");
 
 var _initializeUploadcare = __webpack_require__(/*! ./initializeUploadcare */ "./src/initializeUploadcare.js");
 
@@ -1154,7 +1211,9 @@ function registerPlugin(options) {
   comps.size = 0;
   /* eslint-enable*/
 
-  _netlifyCms.default.registerEditorComponent((0, _createToolbarButton.createToolbarButton)(options));
+  _netlifyCms.default.registerEditorComponent((0, _createSingle.createSingle)(options));
+
+  _netlifyCms.default.registerEditorComponent((0, _createMultiple.createMultiple)(options));
 }
 
 function detectCMSVersion() {

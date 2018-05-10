@@ -1,7 +1,8 @@
 import _ from 'lodash'
 import CMS from 'netlify-cms'
 import * as Widget from './Widget'
-import {createToolbarButton} from './Toolbar/createToolbarButton'
+import {createSingle} from './Toolbar/createSingle'
+import {createMultiple} from './Toolbar/createMultiple'
 import {initializeUploadcare} from './initializeUploadcare'
 
 function registerPlugin(options) {
@@ -14,7 +15,8 @@ function registerPlugin(options) {
   comps.size = 0
   /* eslint-enable*/
 
-  CMS.registerEditorComponent(createToolbarButton(options))
+  CMS.registerEditorComponent(createSingle(options))
+  CMS.registerEditorComponent(createMultiple(options))
 }
 
 function detectCMSVersion() {
