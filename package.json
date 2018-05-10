@@ -4,12 +4,11 @@
   "widgetVersion": "3.x",
   "effectsTabVersion": "1.x",
   "main": "dist/uploadcare-netlifycms.js",
-  "description": "",
+  "description": "This is Uploadcare plugin for [Netlify CMS].",
   "scripts": {
-    "clean": "rimraf dist",
     "lint": "eslint .",
     "precommit": "npm run lint",
-    "build": "npm run clean && webpack --config webpack.config.js --mode production",
+    "build": "webpack --config webpack.config.js --mode production",
     "dev": "webpack --config webpack.config.js --watch --mode development",
     "release": "release-it"
   },
@@ -17,7 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/uploadcare/uploadcare-netlifycms.git"
   },
-  "author": "",
+  "author": "Uploadcare",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/uploadcare/uploadcare-netlifycms/issues"
@@ -37,7 +36,6 @@
     "imports-loader": "^0.8.0",
     "postcss-loader": "^2.1.5",
     "release-it": "^7.4.2",
-    "rimraf": "^2.6.2",
     "style-loader": "^0.21.0",
     "webpack": "^4.8.0",
     "webpack-cli": "^2.1.3",
