@@ -5,7 +5,6 @@
   "buildCommand": "npm run build",
   "github": {
     "release": true,
-    "draft": true,
-    "assets": "dist/*.*"
+    "draft": true
   }
 }
