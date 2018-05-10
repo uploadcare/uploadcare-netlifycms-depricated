@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import CMS from 'netlify-cms'
 import * as Widget from './Widget'
-import {createEditorComponent} from './createEditorComponent'
+import {createToolbarButton} from './Toolbar/createToolbarButton'
 import {initializeUploadcare} from './initializeUploadcare'
 
 function registerPlugin(options) {
@@ -14,7 +14,7 @@ function registerPlugin(options) {
   comps.size = 0
   /* eslint-enable*/
 
-  CMS.registerEditorComponent(createEditorComponent(options))
+  CMS.registerEditorComponent(createToolbarButton(options))
 }
 
 function detectCMSVersion() {
@@ -44,8 +44,6 @@ const defaultOpts = {
   widgetOptions: {
     publicKey: 'demopublickey',
     integration: getIntegrationOption(),
-    imagesOnly: true,
-    multiple: false,
   },
 }
 
