@@ -1,5 +1,6 @@
 import React from 'react'
 import Uploader from './Uploader'
+import './Control.pcss'
 
 export class Control extends React.Component {
   onUploadComplete(fileInfo) {
@@ -15,13 +16,11 @@ export class Control extends React.Component {
     return (
       <div className='nc-controlPane-widget nc-imageControl-imageUpload'>
         <span className='nc-imageControl-message'>
-          <div>
-            <Uploader
-              options={widgetOptions}
-              value={this.props.value}
-              onUploadComplete={this.onUploadComplete.bind(this)}
-            />
-          </div>
+          <Uploader
+            options={widgetOptions}
+            value={this.props.value}
+            onUploadComplete={this.onUploadComplete.bind(this)}
+          />
         </span>
       </div>
     )

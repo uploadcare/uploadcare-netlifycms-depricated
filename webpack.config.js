@@ -26,6 +26,13 @@ module.exports = {
           options: {presets: ['@babel/preset-env', '@babel/react']},
         },
       },
+      {
+        test: /\.pcss$/,
+        use: ['style-loader', {
+          loader: 'css-loader',
+          options: {importLoaders: 1},
+        }, 'postcss-loader'],
+      },
     ],
   },
 }
