@@ -1,21 +1,20 @@
 import {createEditorComponent} from './createEditorComponent'
 import CMS from 'netlify-cms'
 import {getScript} from './getScript'
-import * as Image from './Image'
+import * as Widget from './Widget'
 
 function loadWidget() {
-  const widgetSrc = 'https://ucarecdn.com/libs/widget/3.x/uploadcare.full.js'
+  const widgetSrc = 'https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js'
 
   return getScript(widgetSrc)
 }
 
 function registerPlugin() {
-  Image.register()
-
-  const comps = CMS.getEditorComponents()
+  Widget.register()
 
   /* Dirty hack to remove default image component */
   /* eslint-disable*/
+  const comps = CMS.getEditorComponents()
   comps._root.entries = []
   comps.size = 0
   /* eslint-enable*/

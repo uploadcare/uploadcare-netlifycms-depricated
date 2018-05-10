@@ -1,15 +1,15 @@
 import React from 'react'
-import * as Image from './Image'
+import * as Widget from './Widget'
 
 export function createEditorComponent() {
   return {
     id: 'uploadcare',
-    label: 'Uploadcare',
+    label: 'Uploadcare Image',
     fields: [
       {
-        label: 'Uploadcare file',
+        label: 'Uploadcare Image',
         name: 'cdnUrl',
-        widget: 'uploadcare_file',
+        widget: 'uploadcare_widget',
       },
     ],
     pattern: /^!\[(.*)\]\((.*)\)$/,
@@ -38,5 +38,5 @@ function toBlock({cdnUrl, alt}) {
 }
 
 function toPreview(data) {
-  return <Image.Preview {...data} />
+  return <Widget.Preview {...data} />
 }

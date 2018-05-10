@@ -81,10 +81,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/Image/Control.js":
-/*!******************************!*\
-  !*** ./src/Image/Control.js ***!
-  \******************************/
+/***/ "./src/Widget/Control.js":
+/*!*******************************!*\
+  !*** ./src/Widget/Control.js ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -98,7 +98,7 @@ exports.Control = void 0;
 
 var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
 
-var _Uploader = _interopRequireDefault(__webpack_require__(/*! ./Uploader */ "./src/Image/Uploader.js"));
+var _Uploader = _interopRequireDefault(__webpack_require__(/*! ./Uploader */ "./src/Widget/Uploader.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -145,11 +145,11 @@ function (_React$Component) {
         className: "nc-controlPane-widget nc-imageControl-imageUpload"
       }, _react.default.createElement("span", {
         className: "nc-imageControl-message"
-      }, _react.default.createElement(_Uploader.default, {
+      }, _react.default.createElement("div", null, _react.default.createElement(_Uploader.default, {
         options: widgetOptions,
         value: this.props.value,
         onUploadComplete: this.onUploadComplete.bind(this)
-      })));
+      }))));
     }
   }]);
 
@@ -162,10 +162,10 @@ exports.Control = Control;
 
 /***/ }),
 
-/***/ "./src/Image/Preview.js":
-/*!******************************!*\
-  !*** ./src/Image/Preview.js ***!
-  \******************************/
+/***/ "./src/Widget/Preview.js":
+/*!*******************************!*\
+  !*** ./src/Widget/Preview.js ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -228,10 +228,10 @@ exports.Preview = Preview;
 
 /***/ }),
 
-/***/ "./src/Image/Uploader.js":
-/*!*******************************!*\
-  !*** ./src/Image/Uploader.js ***!
-  \*******************************/
+/***/ "./src/Widget/Uploader.js":
+/*!********************************!*\
+  !*** ./src/Widget/Uploader.js ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -333,10 +333,10 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ "./src/Image/index.js":
-/*!****************************!*\
-  !*** ./src/Image/index.js ***!
-  \****************************/
+/***/ "./src/Widget/index.js":
+/*!*****************************!*\
+  !*** ./src/Widget/index.js ***!
+  \*****************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -362,14 +362,14 @@ Object.defineProperty(exports, "Preview", {
 
 var _netlifyCms = _interopRequireDefault(__webpack_require__(/*! netlify-cms */ "netlify-cms"));
 
-var _Control = __webpack_require__(/*! ./Control */ "./src/Image/Control.js");
+var _Control = __webpack_require__(/*! ./Control */ "./src/Widget/Control.js");
 
-var _Preview = __webpack_require__(/*! ./Preview */ "./src/Image/Preview.js");
+var _Preview = __webpack_require__(/*! ./Preview */ "./src/Widget/Preview.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function register() {
-  _netlifyCms.default.registerWidget('uploadcare_file', _Control.Control, _Preview.Preview);
+  _netlifyCms.default.registerWidget('uploadcare_widget', _Control.Control, _Preview.Preview);
 }
 
 /***/ }),
@@ -391,7 +391,7 @@ exports.createEditorComponent = createEditorComponent;
 
 var _react = _interopRequireDefault(__webpack_require__(/*! react */ "react"));
 
-var Image = _interopRequireWildcard(__webpack_require__(/*! ./Image */ "./src/Image/index.js"));
+var Widget = _interopRequireWildcard(__webpack_require__(/*! ./Widget */ "./src/Widget/index.js"));
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
@@ -400,11 +400,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function createEditorComponent() {
   return {
     id: 'uploadcare',
-    label: 'Uploadcare',
+    label: 'Uploadcare Image',
     fields: [{
-      label: 'Uploadcare file',
+      label: 'Uploadcare Image',
       name: 'cdnUrl',
-      widget: 'uploadcare_file'
+      widget: 'uploadcare_widget'
     }],
     pattern: /^!\[(.*)\]\((.*)\)$/,
     fromBlock: fromBlock,
@@ -434,7 +434,7 @@ function toBlock(_ref) {
 }
 
 function toPreview(data) {
-  return _react.default.createElement(Image.Preview, data);
+  return _react.default.createElement(Widget.Preview, data);
 }
 
 /***/ }),
@@ -501,25 +501,24 @@ var _netlifyCms = _interopRequireDefault(__webpack_require__(/*! netlify-cms */ 
 
 var _getScript = __webpack_require__(/*! ./getScript */ "./src/getScript.js");
 
-var Image = _interopRequireWildcard(__webpack_require__(/*! ./Image */ "./src/Image/index.js"));
+var Widget = _interopRequireWildcard(__webpack_require__(/*! ./Widget */ "./src/Widget/index.js"));
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function loadWidget() {
-  var widgetSrc = 'https://ucarecdn.com/libs/widget/3.x/uploadcare.full.js';
+  var widgetSrc = 'https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js';
   return (0, _getScript.getScript)(widgetSrc);
 }
 
 function registerPlugin() {
-  Image.register();
-
-  var comps = _netlifyCms.default.getEditorComponents();
+  Widget.register();
   /* Dirty hack to remove default image component */
 
   /* eslint-disable*/
 
+  var comps = _netlifyCms.default.getEditorComponents();
 
   comps._root.entries = [];
   comps.size = 0;
