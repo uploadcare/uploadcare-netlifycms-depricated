@@ -58,12 +58,36 @@ Property `effectsTab` specifies whether [Effects Tab] should be enabled.
 
 Property `widgetOptions` is passed down to the widget. Please read Uploadcare [widget documentation] to learn more about possible widget options.
 
+## Using in your editor component
+You can use our widget in your own [Editor Component][editor-comp] as a field:
+
+```javascript
+{
+  fields: [
+    {
+      name: 'fileInfo',
+      options: {
+        multiple: true
+      },
+      label: 'Uploadcare',
+      widget: 'uploadcare',
+    },
+  ]
+}
+```
+
+`uploadcare` is the type of widget. It's constant.
+
+`options` is passed down to the Uploadcare widget. Please read Uploadcare [widget documentation].
+
+`fileInfo` is the name for the value of widget. It follows the Uploadcare widget's [`fileInfo`][file-info] structure. When restored from the markdown block, it should have at least `cdnUrl` and `name` properties because they used for preview.
+
 # Feedback
 
 Your feedback or support requests are welcome at hello@uploadcare.com.
 
 [netlify cms]: https://www.netlifycms.org/
-[widget documentation]: https://uploadcare.com/docs/uploads/widget/config/
+[widget documentation]: https://uploadcare.com/docs/uploads/widget/config/#options
 [uploadcare]: https://uploadcare.com
 [badge-stack-img]: https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat
 [badge-stack-url]: https://stackshare.io/uploadcare/stacks/
@@ -75,3 +99,5 @@ Your feedback or support requests are welcome at hello@uploadcare.com.
 [effects tab]: https://uploadcare.com/features/effects_tab/
 [npm-img]: http://img.shields.io/npm/v/uploadcare-netlifycms.svg
 [npm-url]: https://www.npmjs.org/package/uploadcare-netlifycms
+[editor-comp]: https://www.netlifycms.org/docs/custom-widgets/#registereditorcomponent
+[file-info]: https://uploadcare.com/docs/api_reference/javascript/files_uploads/#file-info

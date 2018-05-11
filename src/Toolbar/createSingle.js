@@ -13,7 +13,7 @@ export function createSingle(options) {
         name: 'fileInfo',
         options: widgetOptions,
         label: 'Uploadcare',
-        widget: 'uploadcare_widget',
+        widget: 'uploadcare',
       },
       {
         name: 'customString',
