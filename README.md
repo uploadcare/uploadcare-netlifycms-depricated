@@ -13,6 +13,7 @@ This is Uploadcare plugin for [Netlify CMS]. It will allow
 your users to upload files and images from local device, social networks, cloud
 storages without any backend code that is usually required to handle uploads.
 
+[![NPM version][npm-img]][npm-url]
 [![GitHub release][badge-release-img]][badge-release-url]&nbsp;
 [![Uploadcare stack on StackShare][badge-stack-img]][badge-stack-url]
 
@@ -72,3 +73,5 @@ Your feedback or support requests are welcome at hello@uploadcare.com.
 [demo]: https://quizzical-hawking-b6f8cb.netlify.com/admin/#/
 [git gateway]: https://www.netlify.com/docs/git-gateway/
 [effects tab]: https://uploadcare.com/features/effects_tab/
+[npm-img]: http://img.shields.io/npm/v/uploadcare-netlifycms.svg
+[npm-url]: https://www.npmjs.org/package/uploadcare-netlifycms
