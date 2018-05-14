@@ -14,7 +14,7 @@ This is a plugin for [NetlifyCMS][netlify-cms] to work with [Uploadcare Widget][
 
 # Demo
 
-A demo based on [netlify-templates/one-click-hugo-cms][one-click-hugo-cms] can be found here[demo].
+A demo based on [netlify-templates/one-click-hugo-cms][one-click-hugo-cms] can be found [here][demo].
 
 Registration is open but [Git Gateway] disabled so you can't publish your changes.
 
