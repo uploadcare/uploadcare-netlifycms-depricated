@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {kebabCase} from './kebabCase'
 
-class Uploader extends Component {
+export class Uploader extends Component {
   componentDidMount() {
     const widget = uploadcare.Widget(this.uploader)
     const {value, onChange, onUploadComplete} = this.props
@@ -58,5 +58,3 @@ class Uploader extends Component {
     return <input type='hidden' ref={input => (this.uploader = input)} {...attributes} />
   }
 }
-
-export default Uploader
