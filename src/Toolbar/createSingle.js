@@ -1,9 +1,9 @@
 import React from 'react'
 import * as Widget from '../Widget'
-import _ from 'lodash'
+import merge from 'merge-options'
 
 export function createSingle(options) {
-  const widgetOptions = _.merge(options.widgetOptions, {multiple: false})
+  const widgetOptions = merge(options.widgetOptions, {multiple: false})
 
   return {
     id: 'Uploadcare Single',

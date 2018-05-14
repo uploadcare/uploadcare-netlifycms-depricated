@@ -1,6 +1,6 @@
 import React from 'react'
 import './Control.pcss'
-import Uploader from './Uploader'
+import Uploader from '../Uploader'
 
 export class Control extends React.Component {
   onUploadComplete(fileInfo) {

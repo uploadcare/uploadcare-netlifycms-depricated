@@ -20,7 +20,6 @@ module.exports = {
   resolve: {extensions: ['*', '.js', '.jsx']},
   externals: {
     'react': 'react',
-    'lodash': 'lodash',
     'netlify-cms': 'netlify-cms',
   },
   module: {

@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import merge from 'merge-options'
 import CMS from 'netlify-cms'
 import * as Widget from './Widget'
 import {createSingle} from './Toolbar/createSingle'
@@ -50,7 +50,7 @@ const defaultOpts = {
 }
 
 export default function(userOptions) {
-  const options = _.merge(defaultOpts, userOptions)
+  const options = merge(defaultOpts, userOptions)
 
   initializeUploadcare(options).then(() => registerPlugin(options))
 }

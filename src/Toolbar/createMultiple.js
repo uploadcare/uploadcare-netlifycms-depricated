@@ -1,7 +1,7 @@
-import _ from 'lodash'
+import merge from 'merge-options'
 
 export function createMultiple(options) {
-  const widgetOptions = _.merge(options.widgetOptions, {multiple: true})
+  const widgetOptions = merge(options.widgetOptions, {multiple: true})
 
   return {
     id: 'Uploadcare Group',

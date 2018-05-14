@@ -1,5 +1,5 @@
-import _ from 'lodash'
 import React, {Component} from 'react'
+import {kebabCase} from './kebabCase'
 
 class Uploader extends Component {
   componentDidMount() {
@@ -43,7 +43,13 @@ class Uploader extends Component {
   }
 
   getInputAttributes() {
-    return _.mapKeys(this.props.options, (value, key) => `data-${_.kebabCase(key)}`)
+    return this.props.options.reduce((acc, value, key) => {
+      const newKey = `data-${kebabCase(key)}`
+
+      acc[newKey] = value
+
+      return acc
+    }, {})
   }
 
   render() {
