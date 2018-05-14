@@ -1,17 +1,16 @@
-# NetlifyCMS Uploadcare plugin
+# File Uploader by Uploadcare
 
 <a href="https://uploadcare.com/?utm_source=github&utm_campaign=uploadcare-netlifycms">
-    <img align="right" width="64" height="64"
-      src="https://ucarecdn.com/2f4864b7-ed0e-4411-965b-8148623aa680/uploadcare-logo-mark.svg"
-      alt="">
-    <img align="right" width="64" height="64"
-      src="https://www.netlify.com/img/press/logos/logomark.svg"
-      alt="">
+  <img align="right" width="64" height="64"
+    src="https://ucarecdn.com/2f4864b7-ed0e-4411-965b-8148623aa680/uploadcare-logo-mark.svg"
+    alt="">
 </a>
 
 This is Uploadcare plugin for [Netlify CMS]. It will allow
 your users to upload files and images from local device, social networks, cloud
 storages without any backend code that is usually required to handle uploads.
+
+This is a plugin for [NetlifyCMS][netlify-cms] to work with [Uploadcare Widget][widget-docs].
 
 [![NPM version][npm-img]][npm-url]
 [![GitHub release][badge-release-img]][badge-release-url]&nbsp;
@@ -56,29 +55,30 @@ uploadcare({
 
 Property `effectsTab` specifies whether [Effects Tab] should be enabled.
 
-Property `widgetOptions` is passed down to the widget. Please read Uploadcare [widget documentation] to learn more about possible widget options.
+Property `widgetOptions` is passed down to the widget. Please read Uploadcare [widget documentation][widget-options] to learn more about possible widget options.
 
 ## Using in your editor component
+
 You can use our widget in your own [Editor Component][editor-comp] as a field:
 
 ```javascript
 {
   fields: [
     {
-      name: 'fileInfo',
+      name: "fileInfo",
       options: {
         multiple: true
       },
-      label: 'Uploadcare',
-      widget: 'uploadcare',
-    },
-  ]
+      label: "Uploadcare",
+      widget: "uploadcare"
+    }
+  ];
 }
 ```
 
 `uploadcare` is the type of widget. It's constant.
 
-`options` is passed down to the Uploadcare widget. Please read Uploadcare [widget documentation].
+`options` is passed down to the Uploadcare widget. Please read Uploadcare [widget documentation][widget-options].
 
 `fileInfo` is the name for the value of widget. It follows the Uploadcare widget's [`fileInfo`][file-info] structure. When restored from the markdown block, it should have at least `cdnUrl` and `name` properties because they used for preview.
 
@@ -86,8 +86,9 @@ You can use our widget in your own [Editor Component][editor-comp] as a field:
 
 Your feedback or support requests are welcome at hello@uploadcare.com.
 
-[netlify cms]: https://www.netlifycms.org/
-[widget documentation]: https://uploadcare.com/docs/uploads/widget/config/#options
+[netlify-cms]: https://www.netlifycms.org/
+[widget-docs]: https://uploadcare.com/docs/uploads/widget/
+[widget-options]: https://uploadcare.com/docs/uploads/widget/config/#options
 [uploadcare]: https://uploadcare.com
 [badge-stack-img]: https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat
 [badge-stack-url]: https://stackshare.io/uploadcare/stacks/
