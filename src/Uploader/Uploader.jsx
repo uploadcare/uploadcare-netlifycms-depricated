@@ -43,7 +43,8 @@ export class Uploader extends Component {
   }
 
   getInputAttributes() {
-    return this.props.options.reduce((acc, value, key) => {
+    return Object.keys(this.props.options).reduce((acc, key) => {
+      const value = this.props.options[key]
       const newKey = `data-${kebabCase(key)}`
 
       acc[newKey] = value
