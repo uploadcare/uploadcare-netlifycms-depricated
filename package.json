@@ -4,7 +4,7 @@
   "widgetVersion": "3.x",
   "effectsTabVersion": "1.x",
   "main": "dist/uploadcare-netlifycms.js",
-  "description": "This is Uploadcare plugin for [Netlify CMS].",
+  "description": "File Uploader by Uploadcare. The plugin for NetlifyCMS to work with Uploadcare Widget.",
   "scripts": {
     "lint": "eslint .",
     "precommit": "npm run lint",
