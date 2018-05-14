@@ -6,10 +6,6 @@
     alt="">
 </a>
 
-This is Uploadcare plugin for [Netlify CMS]. It will allow
-your users to upload files and images from local device, social networks, cloud
-storages without any backend code that is usually required to handle uploads.
-
 This is a plugin for [NetlifyCMS][netlify-cms] to work with [Uploadcare Widget][widget-docs].
 
 [![NPM version][npm-img]][npm-url]
