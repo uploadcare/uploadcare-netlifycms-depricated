@@ -14,19 +14,21 @@ This is a plugin for [NetlifyCMS][netlify-cms] to work with [Uploadcare Widget][
 
 # Demo
 
-A demo based on [netlify-templates/one-click-hugo-cms][one-click-hugo-cms] can be found here: [Demo]
+A demo based on [netlify-templates/one-click-hugo-cms][one-click-hugo-cms] can be found here[demo].
 
 Registration is open but [Git Gateway] disabled so you can't publish your changes.
 
-## Installation & configuration
+## Installation
 
-1.  Install through NPM:
+Install through NPM:
 
 ```bash
 npm install uploadcare-netlifycms --save
 ```
 
-2.  Import and initialize
+## Usage
+
+Import and initialize:
 
 ```javascript
 import uploadcare from "uploadcare-netlifycms";
@@ -34,7 +36,7 @@ import uploadcare from "uploadcare-netlifycms";
 uploadcare();
 ```
 
-## Options
+## Configuration
 
 There is only one required option - your public API key. You can get that by creating an
 account [Uploadcare]. You can use demo public key during dev stage, but note that
