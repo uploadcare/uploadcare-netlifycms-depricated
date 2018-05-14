@@ -6,5 +6,6 @@
   "github": {
     "release": true,
     "draft": true
-  }
+  },
+  "requireCleanWorkingDir": false
 }
