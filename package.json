@@ -10,7 +10,8 @@
     "precommit": "npm run lint",
     "build": "webpack --config webpack.config.js --mode production",
     "dev": "webpack --config webpack.config.js --watch --mode development",
-    "release": "release-it"
+    "release": "release-it",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -46,5 +47,8 @@
   "peerDependencies": {
     "react": "^15.0.0||^16.0.0",
     "netlify-cms": "^1.0.0"
-  }
+  },
+  "files": [
+    "dist/uploadcare-netlifycms.js"
+  ]
 }
