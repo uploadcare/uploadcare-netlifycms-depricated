@@ -65,7 +65,7 @@ The `effectsTab` property specifies whether in-browser image editing should be
 enabled. `widgetOptions` get passed to the widget. Check out our
 [widget docs][widget-options] to learn more about its options.
 
-### Uage with your editor component
+### Usage with your editor component
 
 You can implement our widget in your [Editor Component][editor-comp] as a field:
 
