@@ -103,7 +103,7 @@ We welcome your PRs or any feedback at [hello@uploadcare.com][uc-feedback].
 [uc-feature-widget]: https://uploadcare.com/features/widget/
 [uc-feature-fxtab]: https://uploadcare.com/features/effects_tab/
 [uc-feature-image-processing]: https://uploadcare.com/features/image_processing/
-[demo]: https://quizzical-hawking-b6f8cb.netlify.com/admin/#/
+[demo]: https://uploadcare-demo.netlify.com/admin/#/
 [one-click-hugo-cms]: https://github.com/netlify-templates/one-click-hugo-cms
 [uc-keys]: https://uploadcare.com/docs/keys/#keys
 [uc-signup]: https://uploadcare.com/accounts/signup/
