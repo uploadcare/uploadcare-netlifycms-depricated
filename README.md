@@ -6,29 +6,38 @@
     alt="">
 </a>
 
-This is a plugin for [NetlifyCMS][netlify-cms] to work with [Uploadcare Widget][widget-docs].
+This plugin powers your [NetlifyCMS][netlify-cms] with [Uploadcare][uc-home].
+You will be able to:
+
+* Upload any media via [Uploadcare Widget][uc-feature-widget].
+* Edit images in any browser via [Effects Tab][uc-feature-fxtab].
+* Deliver your media to 220k servers across 130+ countries via our smart CDN.
+* Adjust your image content delivery via
+  [Image Processing][uc-feature-image-processing].
 
 [![NPM version][npm-img]][npm-url]
 [![GitHub release][badge-release-img]][badge-release-url]&nbsp;
 [![Uploadcare stack on StackShare][badge-stack-img]][badge-stack-url]
 
-# Demo
+## Demo
 
-A demo based on [netlify-templates/one-click-hugo-cms][one-click-hugo-cms] can be found [here][demo].
+Check out how it works via the [demo][demo] based on
+[netlify-templates/one-click-hugo-cms][one-click-hugo-cms].
 
-Registration is open but [Git Gateway] disabled so you can't publish your changes.
+You are free to register, but since [Git Gateway][git-gateway] is disabled, you
+won’t be able to publish your changes.
 
-## Installation
+### Installation
 
-Install through NPM:
+This demo can be installed via NPM:
 
 ```bash
 npm install uploadcare-netlifycms --save
 ```
 
-## Usage
+### Usage
 
-Import and initialize:
+Just import and initialize `uploadcare-netlifycms`:
 
 ```javascript
 import uploadcare from "uploadcare-netlifycms";
@@ -36,11 +45,12 @@ import uploadcare from "uploadcare-netlifycms";
 uploadcare();
 ```
 
-## Configuration
+### Configuration
 
-There is only one required option - your public API key. You can get that by creating an
-account [Uploadcare]. You can use demo public key during dev stage, but note that
-demo account files are removed every few hours.
+There is only one required option, your public [API key][uc-keys]. You can
+get one by [signing up][uc-signup] for Uploadcare. Another option is using
+`demopublickey` for testing purposes. But note, we are wiping out all files on
+our demo account every few hours.
 
 ```javascript
 uploadcare({
@@ -51,13 +61,13 @@ uploadcare({
 });
 ```
 
-Property `effectsTab` specifies whether [Effects Tab] should be enabled.
+The `effectsTab` property specifies whether in-browser image editing should be
+enabled. `widgetOptions` get passed to the widget. Check out our
+[widget docs][widget-options] to learn more about its options.
 
-Property `widgetOptions` is passed down to the widget. Please read Uploadcare [widget documentation][widget-options] to learn more about possible widget options.
+### Uage with your editor component
 
-## Using in your editor component
-
-You can use our widget in your own [Editor Component][editor-comp] as a field:
+You can implement our widget in your [Editor Component][editor-comp] as a field:
 
 ```javascript
 {
@@ -74,29 +84,37 @@ You can use our widget in your own [Editor Component][editor-comp] as a field:
 }
 ```
 
-`uploadcare` is the type of widget. It's constant.
+`uploadcare` stands for the widget type, it’s a constant.
 
-`options` is passed down to the Uploadcare widget. Please read Uploadcare [widget documentation][widget-options].
+`options` are passed to the widget. Learn more about options in the
+[widget docs][widget-options].
 
-`fileInfo` is the name for the value of widget. It follows the Uploadcare widget's [`fileInfo`][file-info] structure. When restored from the markdown block, it should have at least `cdnUrl` and `name` properties because they used for preview.
+`fileInfo` stands for the widget value name. It follows the widget’s
+[`fileInfo`][file-info] structure. When restored from a markdown block, it
+should at least contain the `cdnUrl` and `name` properties: they are used for
+a preview.
 
-# Feedback
+## Feedback
 
-Your feedback or support requests are welcome at hello@uploadcare.com.
+We welcome your PRs or any feedback at [hello@uploadcare.com][uc-feedback].
 
 [netlify-cms]: https://www.netlifycms.org/
-[widget-docs]: https://uploadcare.com/docs/uploads/widget/
+[uc-home]: https://uploadcare.com
+[uc-feature-widget]: https://uploadcare.com/features/widget/
+[uc-feature-fxtab]: https://uploadcare.com/features/effects_tab/
+[uc-feature-image-processing]: https://uploadcare.com/features/image_processing/
+[demo]: https://quizzical-hawking-b6f8cb.netlify.com/admin/#/
+[one-click-hugo-cms]: https://github.com/netlify-templates/one-click-hugo-cms
+[uc-keys]: https://uploadcare.com/docs/keys/#keys
+[uc-signup]: https://uploadcare.com/accounts/signup/
 [widget-options]: https://uploadcare.com/docs/uploads/widget/config/#options
-[uploadcare]: https://uploadcare.com
+[editor-comp]: https://www.netlifycms.org/docs/custom-widgets/#registereditorcomponent
 [badge-stack-img]: https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat
 [badge-stack-url]: https://stackshare.io/uploadcare/stacks/
 [badge-release-img]: https://img.shields.io/github/release/uploadcare/uploadcare-netlifycms.svg
 [badge-release-url]: https://github.com/uploadcare/uploadcare-netlifycms/releases
-[one-click-hugo-cms]: https://github.com/netlify-templates/one-click-hugo-cms
-[demo]: https://quizzical-hawking-b6f8cb.netlify.com/admin/#/
-[git gateway]: https://www.netlify.com/docs/git-gateway/
-[effects tab]: https://uploadcare.com/features/effects_tab/
+[git-gateway]: https://www.netlify.com/docs/git-gateway/
 [npm-img]: http://img.shields.io/npm/v/uploadcare-netlifycms.svg
 [npm-url]: https://www.npmjs.org/package/uploadcare-netlifycms
-[editor-comp]: https://www.netlifycms.org/docs/custom-widgets/#registereditorcomponent
 [file-info]: https://uploadcare.com/docs/api_reference/javascript/files_uploads/#file-info
+[uc-feedback]: mailto:hello@uploadcare.com
