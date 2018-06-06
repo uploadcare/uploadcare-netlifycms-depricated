@@ -91,7 +91,7 @@ You can implement our widget in your [Editor Component][editor-comp] as a field:
 
 `fileInfo` stands for the widget value name. It follows the widget’s
 [`fileInfo`][file-info] structure. When restored from a markdown block, it
-should at least contain the `cdnUrl` and `name` properties: they are used for
+will at least contain the `cdnUrl` and `name` properties: they are used for
 a preview.
 
 ## Feedback
