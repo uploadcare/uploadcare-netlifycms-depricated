@@ -48,7 +48,7 @@ import uploadcare from "uploadcare-netlifycms";
 uploadcare();
 ```
 
-Note that `uploadcare-netlifycms` should be initialized after `netlify-cms` import.
+Note, `uploadcare-netlifycms` should be initialized after importing `netlify-cms`.
 
 ## Configuration
 
