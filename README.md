@@ -22,10 +22,12 @@ You will be able to:
 ## Demo
 
 Check out how it works via the [demo][demo] based on
-[netlify-templates/one-click-hugo-cms][one-click-hugo-cms].
+[netlify-templates/one-click-hugo-cms][one-click-hugo-cms]. 
 
-You are free to register, but since [Git Gateway][git-gateway] is disabled, you
-won’t be able to publish your changes.
+Just log in using the following credentials:
+
+* Email: `demo@netlify.cms`
+* Password: `demo`
 
 The source code of our demo can be found [here][demo-sources].
 
