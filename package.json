@@ -10,8 +10,7 @@
     "precommit": "npm run lint",
     "build": "webpack --config webpack.config.js --mode production",
     "dev": "webpack --config webpack.config.js --watch --mode development",
-    "release": "release-it",
-    "prepublishOnly": "npm run build"
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
