@@ -1,0 +1,11 @@
+{
+  "src": {
+    "tagName": "v%s"
+  },
+  "buildCommand": "npm run build",
+  "github": {
+    "release": true,
+    "draft": true
+  },
+  "requireCleanWorkingDir": false
+}

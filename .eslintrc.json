@@ -1,0 +1,16 @@
+{
+  "extends": ["uploadcare", "plugin:react/recommended"],
+  "plugins": [
+    "react"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "env": {"node": true},
+  "rules": {
+    "require-jsdoc": "off",
+    "max-statements": "off",
+    "max-nested-callbacks": "off"
+  }
+}

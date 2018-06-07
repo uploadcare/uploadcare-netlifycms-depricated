@@ -1,0 +1,4 @@
+# This list of authors is based on the git history of this repo.
+
+Aleksandr Grenishin <nd0ut.me@gmail.com>
+Elijah <ilya@uploadcare.com>
