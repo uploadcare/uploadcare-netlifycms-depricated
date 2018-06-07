@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-* Toolbar buttons to insert single file or group
-* Optional [Effects Tab][effects-tab-landing]
+* Toolbar buttons for inserting single files or file groups via Uploadcare Widget
+* In-browser image editing option via [Effects Tab][effects-tab-landing]
 
 [effects-tab-landing]: https://uploadcare.com/features/effects_tab/
