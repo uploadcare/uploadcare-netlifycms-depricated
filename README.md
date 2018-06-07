@@ -27,7 +27,7 @@ Check out how it works via the [demo][demo] based on
 You are free to register, but since [Git Gateway][git-gateway] is disabled, you
 won’t be able to publish your changes.
 
-### Installation
+## Install
 
 This demo can be installed via NPM:
 
@@ -35,7 +35,7 @@ This demo can be installed via NPM:
 npm install uploadcare-netlifycms --save
 ```
 
-### Usage
+## Usage
 
 Just import and initialize `uploadcare-netlifycms`:
 
@@ -45,7 +45,7 @@ import uploadcare from "uploadcare-netlifycms";
 uploadcare();
 ```
 
-### Configuration
+## Configuration
 
 There is only one required option, your public [API key][uc-keys]. You can
 get one by [signing up][uc-signup] for Uploadcare. Another option is using
@@ -65,7 +65,7 @@ The `effectsTab` property specifies whether in-browser image editing should be
 enabled. `widgetOptions` get passed to the widget. Check out our
 [widget docs][widget-options] to learn more about its options.
 
-### Usage with your editor component
+## Usage with your editor component
 
 You can implement our widget in your [Editor Component][editor-comp] as a field:
 
@@ -94,9 +94,19 @@ You can implement our widget in your [Editor Component][editor-comp] as a field:
 will at least contain the `cdnUrl` and `name` properties: they are used for
 a preview.
 
+## Security issues
+
+If you think you ran into something in Uploadcare libraries which might have
+security implications, please hit us up at [bugbounty@uploadcare.com][uc-email-bounty]
+or Hackerone.
+
+We'll contact you personally in a short time to fix an issue through co-op and
+prior to any public disclosure.
+
 ## Feedback
 
-We welcome your PRs or any feedback at [hello@uploadcare.com][uc-feedback].
+Issues and PRs are welcome. You can provide your feedback or drop us a support
+request at [hello@uploadcare.com][uc-email-hello].
 
 [netlify-cms]: https://www.netlifycms.org/
 [uc-home]: https://uploadcare.com
@@ -118,3 +128,5 @@ We welcome your PRs or any feedback at [hello@uploadcare.com][uc-feedback].
 [npm-url]: https://www.npmjs.org/package/uploadcare-netlifycms
 [file-info]: https://uploadcare.com/docs/api_reference/javascript/files_uploads/#file-info
 [uc-feedback]: mailto:hello@uploadcare.com
+[uc-email-bounty]: mailto:bugbounty@uploadcare.com
+[uc-email-hello]: mailto:hello@uploadcare.com
