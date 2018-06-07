@@ -27,9 +27,11 @@ Check out how it works via the [demo][demo] based on
 You are free to register, but since [Git Gateway][git-gateway] is disabled, you
 won’t be able to publish your changes.
 
+The source code of our demo can be found [here][demo-sources].
+
 ## Install
 
-This demo can be installed via NPM:
+This plugin can be installed via NPM:
 
 ```bash
 npm install uploadcare-netlifycms --save
@@ -40,10 +42,13 @@ npm install uploadcare-netlifycms --save
 Just import and initialize `uploadcare-netlifycms`:
 
 ```javascript
+import CMS from "netlify-cms";
 import uploadcare from "uploadcare-netlifycms";
 
 uploadcare();
 ```
+
+Note that `uploadcare-netlifycms` should be initialized after `netlify-cms` import.
 
 ## Configuration
 
@@ -130,3 +135,4 @@ request at [hello@uploadcare.com][uc-email-hello].
 [uc-feedback]: mailto:hello@uploadcare.com
 [uc-email-bounty]: mailto:bugbounty@uploadcare.com
 [uc-email-hello]: mailto:hello@uploadcare.com
+[demo-sources]: https://github.com/uploadcare/uploadcare-netlifycms-demo-hugo
