@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-* Toolbar buttons for inserting single files or file groups via Uploadcare Widget
-* In-browser image editing option via [Effects Tab][effects-tab-landing]
+* Toolbar buttons for inserting single files or file groups via [Uploadcare Widget][uc-features-widget].
+* In-browser image editing option via [Effects Tab][uc-features-fxtab].
 
-[effects-tab-landing]: https://uploadcare.com/features/effects_tab/
+[uc-features-widget]: https://uploadcare.com/features/widget/
+[uc-features-fxtab]: https://uploadcare.com/features/effects_tab/
