@@ -1,5 +1,7 @@
 # File Uploader by Uploadcare
 
+**Depricated in favor of https://github.com/netlify/netlify-cms/tree/master/packages/netlify-cms-media-library-uploadcare. Read more on https://www.netlifycms.org/docs/uploadcare/.**
+
 <a href="https://uploadcare.com/?utm_source=github&utm_campaign=uploadcare-netlifycms">
   <img align="right" width="64" height="64"
     src="https://ucarecdn.com/2f4864b7-ed0e-4411-965b-8148623aa680/uploadcare-logo-mark.svg"
